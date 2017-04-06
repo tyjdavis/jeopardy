@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Jeopardy</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h1>Jeopardy</h1>
+    <section id="quiz"> </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+    <!-- <script id="multipleChoice" type="text/x-handlebars-template">
+      <article>
+        <h3><strong>{{text}}</strong></h3>
+        <ul>
+          {{#each choices}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+        <div class="answer"></div>
+      </article>
+    </script> -->
+    <script id="shortAnswer" type="text/x-handlebars-template">
+        <h3><strong>{{question}}</strong></h3>
+          <p><input id="text" type="text"></p>
+          <button id="submit">Guess</button>
+          <div class="answer"></div>
+    </script>
+    <section class="score"><strong>Your Current Score: <span class="yourScore"></span><span>$</span></strong></section>
+    <form>
+      <input name="firstName" placeholder="Username">
+      <button>Submit</button>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>
