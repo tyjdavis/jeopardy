@@ -1,15 +1,45 @@
+body{
+  background-color: black;
+}
+
 #categoryOnly {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-
 }
 
 .catSelection {
-  width: 400px;
-  height: 100px;
+  width: 420px;
+  height: 130px;
   border: 2px solid black;
   text-align: center;
   font-size: 2rem;
+  text-transform: uppercase;
+  background-color: #002a89;
+  color: #e2e2e2;
+}
+
+#questionOnly {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.questionSelection {
+  width: 400px;
+  height: 300px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 1rem;
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  background-color: #002a89;
+  color: #e2e2e2;
+}
+
+.difficulty {
+  color: #d79d65;
 }

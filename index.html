@@ -11,9 +11,9 @@
     <section id="categoryOnly"></section>
     <script id="categories" type="text/x-handlebars-template">
       <section class="catSelection">
-      <div class="test">
+      <div class="cat">
         <div class="category>">{{category}}</div>
-        <div class="difficulty">{{value}}</div>
+        <div class="difficulty">${{value}}</div>
       </div>
       </section>
     </script>
@@ -24,6 +24,10 @@
     <script id="questions" type="text/x-handlebars-template">
       <section class="questionSelection">
         <div class="question>">{{text}}</div>
+        <p><input id="text" type="text"></p>
+          <button id="submit">Submit</button>
+          <div class="result"></div>
+          <button id="new">New Question</button>
       </section>
     </script>
 
@@ -46,6 +50,6 @@
       <input name="firstName" placeholder="Username">
       <button>Submit</button>
     </form>
-    <script src="./index2.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
