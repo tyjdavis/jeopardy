@@ -20,7 +20,20 @@
         <div class="answer"></div>
       </article>
     </script> -->
+    <script id="categories" type="text/x-handlebars-template">
+        <h3><strong>{{question}}</strong></h3>
+          <p><input id="text" type="text"></p>
+          <button id="submit">Guess</button>
+          <div class="answer"></div>
+    </script>
+
     <script id="shortAnswer" type="text/x-handlebars-template">
+
+      <section class="catSelection">
+        <div class="categories>">{{category.title}}</div>
+        <div class="difficulty">{{value}}</div>
+      </section>
+      
         <h3><strong>{{question}}</strong></h3>
           <p><input id="text" type="text"></p>
           <button id="submit">Guess</button>
