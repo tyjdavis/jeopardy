@@ -1,5 +1,5 @@
 body{
-  background-color: black;
+  background-color: #ffffff;
 }
 
 #categoryOnly {
@@ -10,14 +10,17 @@ body{
 }
 
 .catSelection {
+  padding: 20px;
   width: 420px;
   height: 130px;
-  border: 2px solid black;
+  border: 2px solid #ffffff;
   text-align: center;
   font-size: 2rem;
   text-transform: uppercase;
   background-color: #002a89;
   color: #e2e2e2;
+  text-shadow: 2px 2px black;
+  font-family: Helvetica;
 }
 
 #questionOnly {
@@ -32,14 +35,40 @@ body{
   height: 300px;
   border: 2px solid black;
   text-align: center;
+  padding: 15px;
   font-size: 1rem;
-  position: fixed;
+  position: absolute;
   top: 10%;
   left: 30%;
   background-color: #002a89;
   color: #e2e2e2;
+  text-transform: uppercase;
+  text-shadow: 2px 2px black;
+  font-family: Helvetica;
 }
 
 .difficulty {
   color: #d79d65;
+}
+
+.score {
+  position: absolute;
+  top: 80%;
+  left:50%;
+  margin-top:-50px;
+  margin-left:-100px;
+  color: black;
+  text-transform: uppercase;
+  font-family: Helvetica;
+}
+
+.questionValue {
+  font-size: 2rem;
+  color: #d79d65;
+  padding: 10px;
+}
+
+img {
+  width: 70%;
+
 }

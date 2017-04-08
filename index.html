@@ -23,33 +23,18 @@
     <section id="questionOnly"></section>
     <script id="questions" type="text/x-handlebars-template">
       <section class="questionSelection">
+        <div class="questionValue">${{value}}</div>
         <div class="question>">{{text}}</div>
         <p><input id="text" type="text"></p>
-          <button id="submit">Submit</button>
+          <button id="submit">Guess</button>
           <div class="result"></div>
           <button id="new">New Question</button>
       </section>
     </script>
 
-
-    <!--<section id="questionOnly"> </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
-    <script id="question" type="text/x-handlebars-template">
-      <section class="questionSelection">
-        <div class="categories>">{{category.title}}</div>
-        <div class="difficulty">{{value}}</div>
-      </section>
-
-        <h3><strong>{{question}}</strong></h3>
-          <p><input id="text" type="text"></p>
-          <button id="submit">Guess</button>
-          <div class="answer"></div>
-    </script> -->
-    <section class="score"><strong>Your Current Score: <span class="yourScore"></span><span>$</span></strong></section>
-    <form>
-      <input name="firstName" placeholder="Username">
-      <button>Submit</button>
-    </form>
+    <section class="score"><strong>Your Current Score: <span>$</span><span class="yourScore"></span></strong>
+    </section>
+    <img src="images/alex_trebek.jpg">
     <script src="./index.js"></script>
   </body>
 </html>

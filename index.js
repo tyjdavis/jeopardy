@@ -1,18 +1,17 @@
-function MultipleChoiceQuestion (text, answer, category, value) {
+function JeopardyQuestions (text, answer, category, value) {
   this.text = text;
   this.answer = answer;
   this.category = category;
   this.value = value;
 
 
-
 this.displayCategory = function () {
-    let source = document.querySelector('#categories').innerHTML;
-    let template = Handlebars.compile(source);
-    let html = template(this);
-    document.querySelector('#categoryOnly').insertAdjacentHTML('beforeend', html);
-    document.querySelector('#categoryOnly .catSelection:last-of-type .cat').addEventListener('click', this.displayQuestion.bind(this));
-  }
+  let source = document.querySelector('#categories').innerHTML;
+  let template = Handlebars.compile(source);
+  let html = template(this);
+  document.querySelector('#categoryOnly').insertAdjacentHTML('beforeend', html);
+  document.querySelector('#categoryOnly .catSelection:last-of-type .cat').addEventListener('click', this.displayQuestion.bind(this));
+}
 
 this.displayQuestion = function () {
   //document.getElementById("categories").style.visibilty = "hidden";
@@ -24,46 +23,53 @@ this.displayQuestion = function () {
   let html = template(this);
   document.querySelector('#questionOnly').insertAdjacentHTML('beforeend', html);
   document.querySelector('#questionOnly .questionSelection:last-of-type #submit').addEventListener('click', this.isCorrect.bind(this));
-
 }
+
+//let score = 0;
 
 this.isCorrect = function (event) {
   let space = document.getElementById("text").value;
   let li = event.target;
   let answerSpace = li.nextElementSibling;
-  let newQuestion1 = document.querySelector('#new');
-  console.log('test');
+  let newQuestion = document.querySelector('#new');
+  let scorespace = document.querySelector('.yourScore');
+  let questionValue = this.value;
+  newQuestion.addEventListener('click', refreshGame);
   if (space === this.answer) {
     answerSpace.textContent = "Correct";
+    scorespace.textContent = "test";
+    console.log(questionValue);
   } else {
     answerSpace.textContent = "Incorrect";
+    }
   }
 }
 
 
-
+function refreshGame() {
+  let a = document.querySelector('#categoryOnly');
+  a.innerHTML = "";
+  a.style.visibility = "visible";
+  let b = document.querySelector('#questionOnly');
+  b.innerHTML = "";
+  fetch('http://jservice.io/api/random?count=3')
+  .then(response => response.json())
+  .then(getCategoriesFromAPI)
+  .then(displayQuestion)
 }
 
-
-
-
-fetch('http://jservice.io/api/random?count=3')
-.then(response => response.json())
-.then(getCategoriesFromAPI)
-.then(displayQuestion)
+refreshGame();
 
 
 function getCategoriesFromAPI (object) {
   return object.map(function (object) {
-  return newQuestion = new MultipleChoiceQuestion(object.question, object.answer, object.category.title, object.value)
+  return newQuestion = new JeopardyQuestions(object.question, object.answer, object.category.title, object.value)
 })
 }
 
 
-
-
 function displayQuestion (arr) {
-  arr.forEach(question => question.displayCategory()); //running display from line 38
+  arr.forEach(question => question.displayCategory());
 }
 
 
