@@ -53,8 +53,8 @@ body{
 
 .score {
   position: absolute;
-  top: 410px;
-  left: 50%;
+  top: 270px;
+  left: 70%;
   color: #ffffff;
   text-transform: uppercase;
   font-family: Helvetica;
@@ -90,8 +90,8 @@ img {
   color: white;
   font-family: 'daniel';
   position: absolute;
-  top: 480px;
-  left: 50%;
+  top: 350px;
+  left: 70%;
   width: 200px;
   height: 90px;
 }
