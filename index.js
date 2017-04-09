@@ -25,26 +25,29 @@ this.displayQuestion = function () {
   document.querySelector('#questionOnly .questionSelection:last-of-type #submit').addEventListener('click', this.isCorrect.bind(this));
 }
 
-//let score = 0;
 
 this.isCorrect = function (event) {
   let space = document.getElementById("text").value;
   let li = event.target;
   let answerSpace = li.nextElementSibling;
   let newQuestion = document.querySelector('#new');
-  let scorespace = document.querySelector('.yourScore');
+  let scoreSpace = document.querySelector('.yourScore');
   let questionValue = this.value;
   newQuestion.addEventListener('click', refreshGame);
   if (space === this.answer) {
     answerSpace.textContent = "Correct";
-    scorespace.textContent = "test";
-    console.log(questionValue);
+    score += questionValue;
+    scoreSpace.textContent = score;
+    //console.log(typeof(scoreSpace));
   } else {
     answerSpace.textContent = "Incorrect";
+    score -= questionValue;
+    scoreSpace.textContent = score;
     }
   }
 }
 
+let score = 0;
 
 function refreshGame() {
   let a = document.querySelector('#categoryOnly');
@@ -71,20 +74,3 @@ function getCategoriesFromAPI (object) {
 function displayQuestion (arr) {
   arr.forEach(question => question.displayCategory());
 }
-
-
-  // let score = 100;
-  //
-  //   MultipleChoiceQuestion.prototype.isCorrect = function (event) {
-  //     let li = event.target;
-  //     let answerSpace = li.parentElement.nextElementSibling;
-  //     let scorespace = document.querySelector('.yourScore');
-  //     if (li.textContent === this.answer) {
-  //       answerSpace.textContent = "Correct";
-  //       scorespace.textContent = score;
-  //     } else {
-  //       answerSpace.textContent = "Wrong";
-  //       score -= 10;
-  //       scorespace.textContent = score;
-  //     }
-  //   }

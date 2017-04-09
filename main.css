@@ -18,7 +18,7 @@ body{
   font-size: 2rem;
   text-transform: uppercase;
   background-color: #002a89;
-  color: #e2e2e2;
+  color: #ffffff;
   text-shadow: 2px 2px black;
   font-family: Helvetica;
 }
@@ -36,12 +36,12 @@ body{
   border: 2px solid black;
   text-align: center;
   padding: 15px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   position: absolute;
   top: 10%;
   left: 30%;
   background-color: #002a89;
-  color: #e2e2e2;
+  color: #ffffff;
   text-transform: uppercase;
   text-shadow: 2px 2px black;
   font-family: Helvetica;
@@ -53,13 +53,17 @@ body{
 
 .score {
   position: absolute;
-  top: 80%;
-  left:50%;
-  margin-top:-50px;
-  margin-left:-100px;
-  color: black;
+  top: 410px;
+  left: 50%;
+  color: #ffffff;
   text-transform: uppercase;
   font-family: Helvetica;
+  border: 2px solid black;
+  width: 200px;
+  height: 50px;
+  background-color: #002a89;
+  font-size: 2.5rem;
+  text-align: center;
 }
 
 .questionValue {
@@ -69,6 +73,25 @@ body{
 }
 
 img {
-  width: 70%;
+  width: 52%;
+}
 
+@font-face {
+  font-family: 'daniel';
+  src: url('daniel/daniel.ttf');
+}
+
+.name input {
+  border: 1px solid black;
+  font-size: 2.2rem;
+  padding-top: 10px;
+  background-color: #002a89;
+  text-align: center;
+  color: white;
+  font-family: 'daniel';
+  position: absolute;
+  top: 480px;
+  left: 50%;
+  width: 200px;
+  height: 90px;
 }
