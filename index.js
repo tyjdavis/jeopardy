@@ -1,3 +1,32 @@
+refreshGame();
+
+function refreshGame() {
+  let categoryDiv = document.querySelector('#categoryOnly');
+  categoryDiv.innerHTML = "";
+  categoryDiv.style.visibility = "visible";
+  let questionDiv = document.querySelector('#questionOnly');
+  questionDiv.innerHTML = "";
+
+  fetch('http://jservice.io/api/random?count=3')
+  .then(response => response.json())
+  .then(getCategoriesFromAPI)
+  .then(display)
+}
+
+
+function getCategoriesFromAPI (object) {
+  return object.map(function (object) {
+  return newQuestion = new JeopardyQuestions(object.question, object.answer, object.category.title, object.value)
+})
+}
+
+
+function display (arr) {
+  arr.forEach(question => question.displayCategory());
+}
+
+
+
 function JeopardyQuestions (text, answer, category, value) {
   this.text = text;
   this.answer = answer;
@@ -14,7 +43,6 @@ this.displayCategory = function () {
 }
 
 this.displayQuestion = function () {
-  //document.getElementById("categories").style.visibilty = "hidden";
   console.log(this);
   let categoryBox = document.querySelector('#categoryOnly');
   categoryBox.style.visibility = 'hidden';
@@ -24,7 +52,6 @@ this.displayQuestion = function () {
   document.querySelector('#questionOnly').insertAdjacentHTML('beforeend', html);
   document.querySelector('#questionOnly .questionSelection:last-of-type #submit').addEventListener('click', this.isCorrect.bind(this));
 }
-
 
 this.isCorrect = function (event) {
   let space = document.getElementById("text").value;
@@ -38,7 +65,6 @@ this.isCorrect = function (event) {
     answerSpace.textContent = "Correct";
     score += questionValue;
     scoreSpace.textContent = score;
-    //console.log(typeof(scoreSpace));
   } else {
     answerSpace.textContent = "Incorrect";
     score -= questionValue;
@@ -48,29 +74,3 @@ this.isCorrect = function (event) {
 }
 
 let score = 0;
-
-function refreshGame() {
-  let categoryDiv = document.querySelector('#categoryOnly');
-  categoryDiv.innerHTML = "";
-  categoryDiv.style.visibility = "visible";
-  let questionDiv = document.querySelector('#questionOnly');
-  questionDiv.innerHTML = "";
-  fetch('http://jservice.io/api/random?count=3')
-  .then(response => response.json())
-  .then(getCategoriesFromAPI)
-  .then(display)
-}
-
-refreshGame();
-
-
-function getCategoriesFromAPI (object) {
-  return object.map(function (object) {
-  return newQuestion = new JeopardyQuestions(object.question, object.answer, object.category.title, object.value)
-})
-}
-
-
-function display (arr) {
-  arr.forEach(question => question.displayCategory());
-}
