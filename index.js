@@ -16,8 +16,8 @@ this.displayCategory = function () {
 this.displayQuestion = function () {
   //document.getElementById("categories").style.visibilty = "hidden";
   console.log(this);
-  let test1 = document.querySelector('#categoryOnly');
-  test1.style.visibility = 'hidden';
+  let categoryBox = document.querySelector('#categoryOnly');
+  categoryBox.style.visibility = 'hidden';
   let source = document.querySelector('#questions').innerHTML;
   let template = Handlebars.compile(source);
   let html = template(this);
@@ -50,15 +50,15 @@ this.isCorrect = function (event) {
 let score = 0;
 
 function refreshGame() {
-  let a = document.querySelector('#categoryOnly');
-  a.innerHTML = "";
-  a.style.visibility = "visible";
-  let b = document.querySelector('#questionOnly');
-  b.innerHTML = "";
+  let categoryDiv = document.querySelector('#categoryOnly');
+  categoryDiv.innerHTML = "";
+  categoryDiv.style.visibility = "visible";
+  let questionDiv = document.querySelector('#questionOnly');
+  questionDiv.innerHTML = "";
   fetch('http://jservice.io/api/random?count=3')
   .then(response => response.json())
   .then(getCategoriesFromAPI)
-  .then(displayQuestion)
+  .then(display)
 }
 
 refreshGame();
@@ -71,6 +71,6 @@ function getCategoriesFromAPI (object) {
 }
 
 
-function displayQuestion (arr) {
+function display (arr) {
   arr.forEach(question => question.displayCategory());
 }
